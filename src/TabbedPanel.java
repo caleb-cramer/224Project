@@ -24,6 +24,8 @@ public class TabbedPanel extends JPanel {
         JComponent panel4 = new JPanel();
         tabbedPane.addTab("Quiz Yourself", panel4);
 
+
+        //comment here
         add(tabbedPane);
 
         tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
