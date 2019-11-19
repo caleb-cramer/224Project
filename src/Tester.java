@@ -1,7 +1,6 @@
 public class Tester {
     public static void main(String[] args) {
-       // new AppView();
-        new PracticeView();
+        new AppView();
     }
 
 }

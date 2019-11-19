@@ -19,7 +19,7 @@ public class TabbedPanel extends JPanel {
         tabbedPane.addTab("Tutorial", panel2);
 
         //practice panel
-        JComponent panel3 = new JPanel();
+        JComponent panel3 = new PracticePanel();
         tabbedPane.addTab("Practice Problems", panel3);
 
         //quiz panel

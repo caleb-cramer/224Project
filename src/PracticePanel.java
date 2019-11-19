@@ -1,27 +1,21 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class PracticeView extends JFrame {
+public class PracticePanel extends JPanel {
 
-    protected JPanel panel;
     protected JPanel topPanel;
     protected JPanel centerPanel;
+    protected JPanel textPanel;
+    protected JPanel problemPanel;
     protected JPanel bottomPanel;
     protected JLabel problemNumber;
     protected JLabel problem;
     protected JTextField answer;
     protected JButton submitAnswer;
 
-    public PracticeView() {
-        super("Practice Problems");
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setPreferredSize(new Dimension(400, 400));
-        setupUI();
-    }
+    public PracticePanel() {
+        super(new BorderLayout());
 
-    private void setupUI() {
-        panel = (JPanel) getContentPane();
         topPanel = new JPanel();
         topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.Y_AXIS));
         problemNumber = new JLabel("Problem 1");
@@ -39,11 +33,11 @@ public class PracticeView extends JFrame {
         submitAnswer = new JButton("Submit Answer");
         submitAnswer.setAlignmentX(Component.CENTER_ALIGNMENT);
         bottomPanel.add(submitAnswer);
-        panel.add(topPanel, BorderLayout.NORTH);
-        panel.add(centerPanel, BorderLayout.CENTER);
-        panel.add(bottomPanel, BorderLayout.SOUTH);
+        this.setLayout(new BorderLayout());
+        this.add(topPanel, BorderLayout.NORTH);
+        this.add(centerPanel, BorderLayout.CENTER);
+        this.add(bottomPanel, BorderLayout.SOUTH);
 
-        pack();
     }
 
 }
