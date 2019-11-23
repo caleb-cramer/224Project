@@ -14,6 +14,7 @@ public class QuizController {
                 else {
                     quizPanel.timer.stop();
                     quizPanel.statusLabel.setText("Timer's Up!");
+                    quizPanel.divisionPanel.setVisible(false);
                 }
             }
         });
