@@ -9,6 +9,7 @@ public class QuizPanel extends JPanel {
     JLabel timeLabel;
     JLabel statusLabel = new JLabel("");
     JButton startQuiz =  new JButton("Start Quiz");
+    JButton submit = new JButton("Submit");
     DivisionPanel divisionPanel = new DivisionPanel();
     QuizController qc = new QuizController(this);
 
@@ -22,7 +23,9 @@ public class QuizPanel extends JPanel {
         JPanel southPanel = new JPanel();
         southPanel.setLayout(new BoxLayout(southPanel, BoxLayout.X_AXIS));
         southPanel.add(startQuiz);
+        southPanel.add(submit);
         southPanel.add(statusLabel);
+
         this.add(southPanel, BorderLayout.SOUTH);
     }
 }

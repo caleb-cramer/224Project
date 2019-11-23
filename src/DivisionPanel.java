@@ -67,16 +67,19 @@ public class DivisionPanel extends JPanel {
 
         quotient = new JTextField(textFieldCols);
         quotient.setFont(myFont);
+        quotient.setHorizontalAlignment(JTextField.CENTER);
         quotient.setText("6");
 
         divisor = new JTextField(textFieldCols);
         divisor.setEditable(false);
         divisor.setFont(myFont);
+        divisor.setHorizontalAlignment(JTextField.CENTER);
         divisor.setText("4");
 
         dividend = new JTextField(textFieldCols);
         dividend.setEditable(false);
         dividend.setFont(myFont);
+        dividend.setHorizontalAlignment(JTextField.CENTER);
         dividend.setText("24");
     }
 }

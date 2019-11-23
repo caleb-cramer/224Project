@@ -24,5 +24,12 @@ public class QuizController {
                 quizPanel.timer.start();
             }
         });
+
+        quizPanel.submit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+
+            }
+        });
     }
 }
