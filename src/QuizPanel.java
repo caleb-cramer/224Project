@@ -5,7 +5,7 @@ import javax.swing.Timer;
 
 public class QuizPanel extends JPanel {
     Timer timer = null;
-    int time = 10;
+    int time = 60;
     JLabel timeLabel;
     JLabel statusLabel = new JLabel("");
     JButton startQuiz =  new JButton("Start Quiz");
