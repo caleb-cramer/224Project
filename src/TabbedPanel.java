@@ -7,7 +7,6 @@ public class TabbedPanel extends JPanel {
 
         JTabbedPane tabbedPane = new JTabbedPane();
 
-
         //login panel
         JComponent panel1 = new JPanel();
         tabbedPane.addTab("Login", panel1);
@@ -21,13 +20,9 @@ public class TabbedPanel extends JPanel {
         tabbedPane.addTab("Practice Problems", panel3);
 
         //quiz panel
-        JComponent panel4 = new JPanel();
+        JComponent panel4 = new QuizPanel();
         tabbedPane.addTab("Quiz Yourself", panel4);
 
-
-        //comment here
         add(tabbedPane);
-
-        tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
     }
 }
