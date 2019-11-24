@@ -28,7 +28,9 @@ public class QuizController {
         quizPanel.submit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                if (quizPanel.submit.getText() != "") {
+                    quizPanel.addToList(quizPanel.submit.getText());
+                }
             }
         });
     }

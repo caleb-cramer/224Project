@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.LinkedList;
 import javax.swing.Timer;
 
 
@@ -12,6 +13,7 @@ public class QuizPanel extends JPanel {
     JButton submit = new JButton("Submit");
     DivisionPanel divisionPanel = new DivisionPanel();
     QuizController qc = new QuizController(this);
+    LinkedList<String> answers = new LinkedList<>();
 
     public QuizPanel(){
         super(new BorderLayout());
@@ -27,5 +29,8 @@ public class QuizPanel extends JPanel {
         southPanel.add(statusLabel);
 
         this.add(southPanel, BorderLayout.SOUTH);
+    }
+    public void addToList(String answer){
+        answers.add(answer);
     }
 }
