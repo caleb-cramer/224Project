@@ -9,8 +9,7 @@ public class PracticePanel extends JPanel {
     protected JPanel problemPanel;
     protected JPanel bottomPanel;
     protected JLabel problemNumber;
-    protected JLabel problem;
-    protected JTextField answer;
+    protected DivisionPanel problem;
     protected JButton submitAnswer;
 
     public PracticePanel() {
@@ -23,11 +22,9 @@ public class PracticePanel extends JPanel {
         topPanel.add(problemNumber);
         centerPanel = new JPanel();
         centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
-        problem = new JLabel("division problem");
+        problem = new DivisionPanel();
         problem.setAlignmentX(Component.CENTER_ALIGNMENT);
-        answer = new JTextField();
         centerPanel.add(problem);
-        centerPanel.add(answer);
         bottomPanel= new JPanel();
         bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.Y_AXIS));
         submitAnswer = new JButton("Submit Answer");
@@ -38,6 +35,9 @@ public class PracticePanel extends JPanel {
         this.add(centerPanel, BorderLayout.CENTER);
         this.add(bottomPanel, BorderLayout.SOUTH);
 
+
+
+        // put math panel in center panel
     }
 
 }
