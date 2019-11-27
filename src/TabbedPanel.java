@@ -7,25 +7,24 @@ public class TabbedPanel extends JPanel {
 
         JTabbedPane tabbedPane = new JTabbedPane();
 
-
         //login panel
         JComponent panel1 = new JPanel();
         tabbedPane.addTab("Login", panel1);
 
         //tutorial panel
-        JComponent panel2 = new JPanel();
+        JComponent panel2 = new TutorialView();
         tabbedPane.addTab("Tutorial", panel2);
 
         //practice panel
-        JComponent panel3 = new JPanel();
+        JComponent panel3 = new PracticePanel();
         tabbedPane.addTab("Practice Problems", panel3);
 
         //quiz panel
-        JComponent panel4 = new JPanel();
+        JComponent panel4 = new QuizPanel();
         tabbedPane.addTab("Quiz Yourself", panel4);
 
         add(tabbedPane);
 
-        tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+//        tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
     }
 }
