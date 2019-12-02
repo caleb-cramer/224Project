@@ -8,9 +8,16 @@ public class DivisionPanel extends JPanel {
     JTextField divisor;
     JTextField dividend;
     JTextField quotient;
+    int left;
+    int center;
+    int top;
 
-    public DivisionPanel() {
-        //setLayout(new GridLayout(2, 2));
+    public DivisionPanel(int l, int c, int t) {
+
+        this.left = l;
+        this.center = c;
+        this.top = t;
+
         setLayout(new GridBagLayout());
 
         setupTextFields();
@@ -23,7 +30,7 @@ public class DivisionPanel extends JPanel {
         c1.anchor = GridBagConstraints.LINE_END;
         c1.ipadx = 100;
         c1.ipady = 30;
-        c1.insets = new Insets(0,0, padding * 2,0);  // padding
+        c1.insets = new Insets(0,0, padding * 2,0);
         this.add(quotient, c1);
 
         //divisor
@@ -33,7 +40,7 @@ public class DivisionPanel extends JPanel {
         c2.gridwidth = 1;
         c2.ipadx = 100;
         c2.ipady = 30;
-        c2.insets = new Insets(0, 0, 0, padding * 2);  // padding
+        c2.insets = new Insets(0, 0, 0, padding * 2);
         this.add(divisor, c2);
 
         //dividend
@@ -68,18 +75,18 @@ public class DivisionPanel extends JPanel {
         quotient = new JTextField(textFieldCols);
         quotient.setFont(myFont);
         quotient.setHorizontalAlignment(JTextField.CENTER);
-        quotient.setText("6");
+        quotient.setText(Integer.toString(top));
 
         divisor = new JTextField(textFieldCols);
         divisor.setEditable(false);
         divisor.setFont(myFont);
         divisor.setHorizontalAlignment(JTextField.CENTER);
-        divisor.setText("4");
+        divisor.setText(Integer.toString(left));
 
         dividend = new JTextField(textFieldCols);
         dividend.setEditable(false);
         dividend.setFont(myFont);
         dividend.setHorizontalAlignment(JTextField.CENTER);
-        dividend.setText("24");
+        dividend.setText(Integer.toString(center));
     }
 }
