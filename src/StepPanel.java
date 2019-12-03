@@ -7,5 +7,6 @@ public class StepPanel extends JPanel {
     public StepPanel(JTextField nextStep, int stepNom){
         this.step = nextStep;
         this.stepNumber = stepNom;
+
     }
 }
