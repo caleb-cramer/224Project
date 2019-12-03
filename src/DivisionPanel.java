@@ -60,7 +60,10 @@ public class DivisionPanel extends JPanel {
         g2.draw(new Line2D.Double(cornerX, cornerY, cornerX + dividend.getWidth(), cornerY)); // horizontal
 
     }
+<<<<<<< HEAD
 
+
+>>>>>>> 2ad002338764241f3abd8bfeff43d58f8df7f1b0
     private void setupTextFields(){
         int textFieldCols = 3;
 
