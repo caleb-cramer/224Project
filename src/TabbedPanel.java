@@ -18,11 +18,11 @@ public class TabbedPanel extends JPanel {
         tabbedPane.addTab("Login", panel1);
 
         //tutorial panel
-        JComponent panel2 = new JPanel();
+        JComponent panel2 = new TutorialView();
         tabbedPane.addTab("Tutorial", panel2);
 
         //practice panel
-        JComponent panel3 = new JPanel();
+        JComponent panel3 = new PracticePanel();
         tabbedPane.addTab("Practice Problems", panel3);
 
         //quiz panel
@@ -30,5 +30,6 @@ public class TabbedPanel extends JPanel {
         tabbedPane.addTab("Quiz Yourself", panel4);
 
         add(tabbedPane);
+
     }
 }
