@@ -5,12 +5,11 @@ public class PracticePanel extends JPanel {
 
     protected JPanel topPanel;
     protected JPanel centerPanel;
-    protected JPanel textPanel;
-    protected JPanel problemPanel;
     protected JPanel bottomPanel;
     protected JLabel problemNumber;
     protected DivisionPanel problem;
     protected JButton submitAnswer;
+    protected PracticeController pc;
 
     public PracticePanel() {
         super(new BorderLayout());
@@ -34,7 +33,7 @@ public class PracticePanel extends JPanel {
         this.add(topPanel, BorderLayout.NORTH);
         this.add(centerPanel, BorderLayout.CENTER);
         this.add(bottomPanel, BorderLayout.SOUTH);
-
+        pc = new PracticeController(this);
 
 
         // put math panel in center panel
