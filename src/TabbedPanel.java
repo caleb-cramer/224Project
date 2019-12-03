@@ -5,7 +5,7 @@ import java.awt.*;
  * @author calebcramer
  * This is our new feature for the Project
  * It is essentially tabs like for a web browser
- * You can click through each panel
+ * You can click through each panelg
  */
 public class TabbedPanel extends JPanel {
     public TabbedPanel() {
