@@ -23,10 +23,10 @@ public class QuizPanel extends JPanel {
     DivisionPanel divisionPanel;
     QuizController qc = new QuizController(this);
     LinkedList<Integer> answers = new LinkedList<>();
-    Random rand = new Random();
-    int divisor;
-    int dividend;
-    int quotient;
+    private Random rand = new Random();
+    private int divisor;
+    private int dividend;
+    private int quotient;
 
     public QuizPanel(){
         super(new BorderLayout());
@@ -37,8 +37,8 @@ public class QuizPanel extends JPanel {
         northPanel.setLayout(new BoxLayout(northPanel, BoxLayout.X_AXIS));
         timeLabel  = new JLabel(Integer.toString(time));
         timeLabel.setFont(new Font("Times Roman", Font.BOLD, 25));
+        timeLabel.setAlignmentX(JLabel.CENTER);
         northPanel.add(timeLabel);
-        northPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.add(northPanel, BorderLayout.NORTH);
 
         this.add(divisionPanel, BorderLayout.CENTER);
@@ -59,7 +59,7 @@ public class QuizPanel extends JPanel {
     int getRightAnswer(){
         return Integer.parseInt(divisionPanel.dividend.getText()) / Integer.parseInt(divisionPanel.divisor.getText());
     }
-    DivisionPanel newDivisionPanel(){
+    private DivisionPanel newDivisionPanel(){
         divisor = rand.nextInt(30) + 1;
         dividend =rand.nextInt(30) + 1;
         quotient = dividend * divisor;

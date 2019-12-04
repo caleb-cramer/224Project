@@ -14,7 +14,7 @@ public class TabbedPanel extends JPanel {
         JTabbedPane tabbedPane = new JTabbedPane();
 
         //login panel
-        JComponent panel1 = new JPanel();
+        JComponent panel1 = new LoginPanel();
         tabbedPane.addTab("Login", panel1);
 
         //tutorial panel
