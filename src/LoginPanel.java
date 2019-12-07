@@ -7,15 +7,16 @@ public class LoginPanel extends JPanel {
     JTextField usernameField;
     JLabel statusLabel;
     JButton loginButton;
-    JLabel welcomeText = new JLabel("Welcome to DIVDR. \n" +
+    JLabel welcomeText = new JLabel("<html> <center> Welcome to DIVDR. <br/>" +
             "Whether you have worked with us before or not, " +
-            "enter your username in the field below and we will get you all set up!");
+            "enter your username in the field below and we will get you all set up!</center></html>");
 
     public LoginPanel() {
         super(new GridLayout(3,1));
 
         usernameField = new JTextField();
         JPanel firstPanel = new JPanel(new GridLayout(1,2));
+        usernameLabel.setFont(new Font("Cailbri", Font.BOLD, 20));
         firstPanel.add(usernameLabel);
         firstPanel.add(usernameField);
 
@@ -26,6 +27,7 @@ public class LoginPanel extends JPanel {
         secondPanel.add(loginButton);
         secondPanel.add(statusLabel);
 
+        welcomeText.setFont(new Font("Cailbri", Font.BOLD, 20));
         this.add(welcomeText);
         this.add(firstPanel);
         this.add(secondPanel);
