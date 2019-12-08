@@ -60,8 +60,8 @@ public class QuizPanel extends JPanel {
         return Integer.parseInt(divisionPanel.dividend.getText()) / Integer.parseInt(divisionPanel.divisor.getText());
     }
     private DivisionPanel newDivisionPanel(){
-        divisor = rand.nextInt(30) + 1;
-        dividend =rand.nextInt(30) + 1;
+        divisor = rand.nextInt(30) + 2;
+        dividend =rand.nextInt(30) + 2;
         quotient = dividend * divisor;
 
         return new DivisionPanel(divisor, quotient, dividend);
