@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import java.text.DecimalFormat;
 import java.util.LinkedList;
 
 /**
@@ -10,8 +10,10 @@ import java.util.LinkedList;
  */
 public class QuizController {
     LinkedList<Integer> correctAnswers = new LinkedList<>();
+    static double percentCorrect = 0.00;
+    DecimalFormat df = new DecimalFormat("###.##");
 
-    public QuizController(QuizPanel quizPanel) {
+    public QuizController(QuizPanel quizPanel, AppModel ap) {
         quizPanel.timer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -22,7 +24,10 @@ public class QuizController {
                     quizPanel.timer.stop();
                     quizPanel.divisionPanel.setVisible(false);
                     quizPanel.submit.setEnabled(false);
-                    quizPanel.statusLabel.setText("Timer's Up! You got " + getResult(quizPanel.answers) + " questions wrong");
+                    percentCorrect = (1 - getResult(quizPanel.answers) / (double) correctAnswers.size()) * 100;
+                    quizPanel.statusLabel.setText("Timer's Up! You got " + df.format(percentCorrect) + "% correct!");
+                    CurrentUser.changeLast(percentCorrect);
+                    ap.updateContact();
                 }
             }
         });
@@ -59,5 +64,9 @@ public class QuizController {
             }
         }
         return wrongAns;
+    }
+
+    public static double getPercentCorrect(){
+        return percentCorrect;
     }
 }

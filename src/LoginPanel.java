@@ -11,7 +11,7 @@ public class LoginPanel extends JPanel {
             "Whether you have worked with us before or not, " +
             "enter your username in the field below and we will get you all set up!</center></html>");
 
-    public LoginPanel() {
+    public LoginPanel(AppModel ap) {
         super(new GridLayout(3,1));
 
         usernameField = new JTextField();
@@ -32,6 +32,6 @@ public class LoginPanel extends JPanel {
         this.add(firstPanel);
         this.add(secondPanel);
 
-        LoginController lc = new LoginController(this);
+        LoginController lc = new LoginController(this, ap);
     }
 }

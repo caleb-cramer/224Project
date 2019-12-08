@@ -133,6 +133,44 @@ public class AppModel {
         }
     }
 
+    public void updateContact() {
+        // update record with id to have new info stored in newContact
+        // UPDATE tableContacts SET name='SPIKE', phoneNumber='208-208-2082' WHERE id=1
+        //UPDATE tableDIVDR SET lastscore = 25.5, WHERE NAME = 'Caleb'
+        String sqlUpdate = updateHighScore(CurrentUser.getCu());
+        //System.out.println(sqlUpdate);
+        if (connection != null) {
+            try {
+                Statement statement = connection.createStatement();
+                statement.execute(sqlUpdate);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 
+    private String updateHighScore(Learner currentUser){
+        if (currentUser.getLastScore() >= currentUser.getHighScore()){
+            currentUser.highScore = currentUser.lastScore;
+            System.out.println("UPDATE " + TABLE_DIVDR + " SET " +
+                    LAST + " = " + currentUser.getLastScore() + ", " +
+                    HIGH + " = " + currentUser.getHighScore() + " WHERE " +
+                    USERNAME + " = '" + currentUser.getUserName() +"'");
+            return "UPDATE " + TABLE_DIVDR + " SET " +
+                    LAST + " = " + currentUser.getLastScore() +", " +
+                    HIGH + " = " + currentUser.getHighScore() + " WHERE " +
+                    USERNAME + " = '" + currentUser.getUserName() +"'";
+
+        }
+        else{
+            System.out.println("UPDATE " + TABLE_DIVDR + " SET " +
+                    LAST + " = " + currentUser.getLastScore() + " WHERE " +
+                    USERNAME + " = '" + currentUser.getUserName() +"'");
+            return "UPDATE " + TABLE_DIVDR + " SET " +
+                    LAST + " = " + currentUser.getLastScore() + " WHERE " +
+                    USERNAME + " = '" + currentUser.getUserName() +"'";
+        }
+
+    }
 }

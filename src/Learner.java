@@ -3,6 +3,12 @@ public class Learner {
     double highScore;
     double lastScore;
 
+    public Learner(){
+        this.userName = "";
+        this.highScore = 0.0;
+        this.lastScore = 0.0;
+    }
+
     public Learner(String username, double highscore, double lastscore){
         this.userName = username;
         this.highScore = highscore;

@@ -11,10 +11,12 @@ public class TabbedPanel extends JPanel {
     public TabbedPanel() {
         super(new GridLayout(1, 1));
 
+        AppModel ap = new AppModel();
+
         JTabbedPane tabbedPane = new JTabbedPane();
 
         //login panel
-        JComponent panel1 = new LoginPanel();
+        JComponent panel1 = new LoginPanel(ap);
         tabbedPane.addTab("Login", panel1);
 
         //tutorial panel
@@ -26,7 +28,7 @@ public class TabbedPanel extends JPanel {
         tabbedPane.addTab("Practice Problems", panel3);
 
         //quiz panel
-        JComponent panel4 = new QuizPanel();
+        JComponent panel4 = new QuizPanel(ap);
         tabbedPane.addTab("Quiz Yourself", panel4);
 
         add(tabbedPane);

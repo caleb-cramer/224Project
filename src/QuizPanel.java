@@ -21,17 +21,17 @@ public class QuizPanel extends JPanel {
     JButton startQuiz =  new JButton("Start Quiz");
     JButton submit = new JButton("Submit");
     DivisionPanel divisionPanel;
-    QuizController qc = new QuizController(this);
+    QuizController qc;
     LinkedList<Integer> answers = new LinkedList<>();
     private Random rand = new Random();
     private int divisor;
     private int dividend;
     private int quotient;
 
-    public QuizPanel(){
+    public QuizPanel(AppModel ap){
         super(new BorderLayout());
         divisionPanel = newDivisionPanel();
-
+        qc = new QuizController(this, ap);
         JPanel northPanel = new JPanel();
 
         northPanel.setLayout(new BoxLayout(northPanel, BoxLayout.X_AXIS));
