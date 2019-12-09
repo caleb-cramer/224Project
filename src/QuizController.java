@@ -9,9 +9,9 @@ import java.util.LinkedList;
  * This is the controller for the QuizPanel
  */
 public class QuizController {
-    LinkedList<Integer> correctAnswers = new LinkedList<>();
-    static double percentCorrect = 0.00;
-    DecimalFormat df = new DecimalFormat("###.##");
+    private LinkedList<Integer> correctAnswers = new LinkedList<>();
+    private static double percentCorrect = 0.00;
+    private DecimalFormat df = new DecimalFormat("###.##");
 
     public QuizController(QuizPanel quizPanel, AppModel ap) {
         quizPanel.timer = new Timer(1000, new ActionListener() {
@@ -38,6 +38,13 @@ public class QuizController {
                 quizPanel.startQuiz.setEnabled(false);
             }
         });
+
+//        quizPanel.restart.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent actionEvent) {
+//                TabbedPanel.newQuizPanel(ap);
+//            }
+//        });
 
         quizPanel.submit.addActionListener(new ActionListener() {
             @Override
@@ -66,7 +73,4 @@ public class QuizController {
         return wrongAns;
     }
 
-    public static double getPercentCorrect(){
-        return percentCorrect;
-    }
 }

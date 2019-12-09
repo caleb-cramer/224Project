@@ -8,12 +8,11 @@ import java.awt.*;
  * You can click through each panelg
  */
 public class TabbedPanel extends JPanel {
+    static JTabbedPane tabbedPane = new JTabbedPane();
     public TabbedPanel() {
         super(new GridLayout(1, 1));
 
         AppModel ap = new AppModel();
-
-        JTabbedPane tabbedPane = new JTabbedPane();
 
         //login panel
         JComponent panel1 = new LoginPanel(ap);
@@ -31,7 +30,17 @@ public class TabbedPanel extends JPanel {
         JComponent panel4 = new QuizPanel(ap);
         tabbedPane.addTab("Quiz Yourself", panel4);
 
+        tabbedPane.setEnabledAt(1,false);
+        tabbedPane.setEnabledAt(2,false);
+        tabbedPane.setEnabledAt(3,false);
+
         add(tabbedPane);
 
     }
+    public static void openTabs(){
+        tabbedPane.setEnabledAt(1,true);
+        tabbedPane.setEnabledAt(2,true);
+        tabbedPane.setEnabledAt(3,true);
+    }
+
 }

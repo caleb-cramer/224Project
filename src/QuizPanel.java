@@ -20,13 +20,11 @@ public class QuizPanel extends JPanel {
     JLabel statusLabel = new JLabel("");
     JButton startQuiz =  new JButton("Start Quiz");
     JButton submit = new JButton("Submit");
+//    JButton restart = new JButton("Reset quiz");
     DivisionPanel divisionPanel;
-    QuizController qc;
+    private QuizController qc;
     LinkedList<Integer> answers = new LinkedList<>();
     private Random rand = new Random();
-    private int divisor;
-    private int dividend;
-    private int quotient;
 
     public QuizPanel(AppModel ap){
         super(new BorderLayout());
@@ -48,6 +46,7 @@ public class QuizPanel extends JPanel {
         southPanel.add(startQuiz);
         southPanel.add(submit);
         southPanel.add(statusLabel);
+//        southPanel.add(restart);
         this.add(southPanel, BorderLayout.SOUTH);
     }
     void addToList(String answer){
@@ -60,9 +59,9 @@ public class QuizPanel extends JPanel {
         return Integer.parseInt(divisionPanel.dividend.getText()) / Integer.parseInt(divisionPanel.divisor.getText());
     }
     private DivisionPanel newDivisionPanel(){
-        divisor = rand.nextInt(30) + 2;
-        dividend =rand.nextInt(30) + 2;
-        quotient = dividend * divisor;
+        int divisor = rand.nextInt(30) + 2;
+        int dividend = rand.nextInt(30) + 2;
+        int quotient = dividend * divisor;
 
         return new DivisionPanel(divisor, quotient, dividend);
     }

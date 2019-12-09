@@ -21,6 +21,7 @@ public class LoginController {
                 }
                 loginPanel.loginButton.setEnabled(false);
                 CurrentUser.setCu(newGuy);
+                TabbedPanel.openTabs();
             }
         });
     }
