@@ -1,4 +1,7 @@
 public class CurrentUser {
+    /**
+     * @author calebcramer
+     */
     private static Learner cu;
 
     public static Learner getCu() {
