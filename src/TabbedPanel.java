@@ -43,4 +43,12 @@ public class TabbedPanel extends JPanel {
         tabbedPane.setEnabledAt(3,true);
     }
 
+    public static void changeTutorial(){
+        tabbedPane.setSelectedIndex(1);
+    }
+
+    public static void changeQuiz(){
+        tabbedPane.setSelectedIndex(3);
+    }
+
 }
