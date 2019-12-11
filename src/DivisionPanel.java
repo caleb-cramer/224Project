@@ -113,7 +113,7 @@ public class DivisionPanel extends JPanel {
         quotient = new JTextField(textFieldCols);
         quotient.setFont(myFont);
         quotient.setHorizontalAlignment(JTextField.CENTER);
-        quotient.setText(Integer.toString(top));
+        //quotient.setText(Integer.toString(top));
 
         divisor = new JTextField(textFieldCols);
         divisor.setEditable(false);
