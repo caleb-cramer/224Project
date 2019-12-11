@@ -18,7 +18,9 @@ public class QuizPanel extends JPanel {
     int time = 10;
     JLabel timeLabel;
     JLabel statusLabel = new JLabel("");
-    JLabel instructions = new JLabel("<html> <div align=\"left\">This is The Quiz! When you are ready, press the start quiz button. We will keep track of your right and wrong answers and give you your score at the end. Good Luck!</div> </html> ");
+    JLabel instructions = new JLabel("<html> <div align=\"right\">This is the Quiz! When you are ready, " +
+            "press the start quiz button. We will keep track of your right and wrong answers " +
+            "and give you your score at the end.<br/> Good Luck!</div> </html> ");
     JButton startQuiz =  new JButton("Start Quiz");
     JButton submit = new JButton("Submit");
 //    JButton restart = new JButton("Reset quiz");
