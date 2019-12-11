@@ -15,9 +15,10 @@ import javax.swing.Timer;
  */
 public class QuizPanel extends JPanel {
     Timer timer = null;
-    int time = 60;
+    int time = 10;
     JLabel timeLabel;
     JLabel statusLabel = new JLabel("");
+    JLabel instructions = new JLabel("<html> <div align=\"left\">This is The Quiz! When you are ready, press the start quiz button. We will keep track of your right and wrong answers and give you your score at the end. Good Luck!</div> </html> ");
     JButton startQuiz =  new JButton("Start Quiz");
     JButton submit = new JButton("Submit");
 //    JButton restart = new JButton("Reset quiz");
@@ -29,14 +30,15 @@ public class QuizPanel extends JPanel {
     public QuizPanel(AppModel ap){
         super(new BorderLayout());
         divisionPanel = newDivisionPanel();
+        submit.setEnabled(false);
         qc = new QuizController(this, ap);
         JPanel northPanel = new JPanel();
-
         northPanel.setLayout(new BoxLayout(northPanel, BoxLayout.X_AXIS));
         timeLabel  = new JLabel(Integer.toString(time));
         timeLabel.setFont(new Font("Times Roman", Font.BOLD, 25));
-        timeLabel.setAlignmentX(JLabel.CENTER);
+        //timeLabel.setAlignmentX(JLabel.CENTER);
         northPanel.add(timeLabel);
+        northPanel.add(instructions);
         this.add(northPanel, BorderLayout.NORTH);
 
         this.add(divisionPanel, BorderLayout.CENTER);
