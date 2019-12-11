@@ -36,6 +36,7 @@ public class QuizController {
             public void actionPerformed(ActionEvent actionEvent) {
                 quizPanel.timer.start();
                 quizPanel.startQuiz.setEnabled(false);
+                quizPanel.submit.setEnabled(true);
             }
         });
 
@@ -54,6 +55,11 @@ public class QuizController {
                 String quot = quizPanel.getQuotient();
                 if (!quot.equals("")) {
                     quizPanel.addToList(quot);
+                    System.out.println("submitted:" + quizPanel.answers + "\n");
+                }
+                else{
+                    System.out.println("Empty");
+                    quizPanel.addToList("0");
                     System.out.println("submitted:" + quizPanel.answers + "\n");
                 }
                 quizPanel.newQuestion();
