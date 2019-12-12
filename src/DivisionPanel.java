@@ -2,6 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Line2D;
 
+/**
+ * @author ginasprint + calebcramer
+ * Displays the graphics part of the Division
+ */
 public class DivisionPanel extends JPanel {
     private int padding = 8;
 

@@ -1,6 +1,7 @@
 public class CurrentUser {
     /**
      * @author calebcramer
+     * essentially a global variable that holds the learner's details
      */
     private static Learner cu;
 

@@ -1,6 +1,10 @@
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
+
+/**
+ * @author calebcramer
+ * displays all of the graphics for the login
+ */
 
 public class LoginPanel extends JPanel {
     JLabel usernameLabel = new JLabel("Username:");

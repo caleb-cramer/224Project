@@ -53,15 +53,21 @@ public class QuizPanel extends JPanel {
 //        southPanel.add(restart);
         this.add(southPanel, BorderLayout.SOUTH);
     }
+
+    //converts string to int and adds to list
     void addToList(String answer){
         answers.add(Integer.parseInt(answer));
     }
+    //gets the quotient from its field in the division panel
     String getQuotient(){
        return divisionPanel.quotient.getText();
     }
+    //makes adds correct answer to list
     int getRightAnswer(){
         return Integer.parseInt(divisionPanel.dividend.getText()) / Integer.parseInt(divisionPanel.divisor.getText());
     }
+
+    //makes a new division panel with random numbers
     private DivisionPanel newDivisionPanel(){
         int divisor = rand.nextInt(30) + 2;
         int dividend = rand.nextInt(30) + 2;
@@ -69,6 +75,8 @@ public class QuizPanel extends JPanel {
 
         return new DivisionPanel(divisor, quotient, dividend);
     }
+
+    //resets the page
     void newQuestion(){
         remove(divisionPanel);
         divisionPanel = newDivisionPanel();

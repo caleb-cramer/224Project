@@ -1,3 +1,7 @@
+/**
+ * @author calebcramer
+ * is a class to define each user and hold the pertenent details
+ */
 public class Learner {
     String userName;
     double highScore;

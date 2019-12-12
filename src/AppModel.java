@@ -3,6 +3,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 //USED CPSC 224 FROM GITHUB
+
+/**
+ * @author calebcramer
+ * USED CPSC224 GITHUB FILES AS A BASIS
+ */
 public class AppModel {
     static final String DATABASE_NAME = "databaseDIVDR.db";
     static final String CONNECTION_URL = "jdbc:sqlite:databases/" + DATABASE_NAME;
@@ -11,25 +16,27 @@ public class AppModel {
     static final String USERNAME = "username";
     static final String LAST = "lastScore";
     static final String HIGH = "highScore";
-
     static List<Learner> nameList = new ArrayList<>();
 
     Connection connection;
 
+    //constructor that makes a new connection, makes a new table and gets an ArrayList<> of all the names in the database
     public AppModel() {
         getConnection();
         createContactsTable();
         getAllNamesList();
     }
+
+    //called by constructor to connect to database
     private void getConnection(){
         try {
             connection = DriverManager.getConnection(CONNECTION_URL);
-            System.out.println("Successfully connected to the database");
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
+    //makes a table to go in database
     private void createContactsTable(){
         String sqlCreate = "CREATE TABLE " + TABLE_DIVDR + "(" +
                 ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -47,6 +54,7 @@ public class AppModel {
         }
     }
 
+    //makes sure that if the table already exists, we don't make a new table every time
     private boolean tableExists() {
         // http://www.java2s.com/Code/Java/Database-SQL-JDBC/Detectifatableexists.htm
         DatabaseMetaData md = null;
@@ -61,6 +69,7 @@ public class AppModel {
         return hasNext;
     }
 
+    //call to close the connection when they are done with the application
     public void closeConnection() {
         // close the connection (just like a file we've opened)
         if (connection != null) {
@@ -72,9 +81,9 @@ public class AppModel {
         }
     }
 
+    //retrieves all the usernames that are in the database and adds them to the nameList
     public void getAllNamesList() {
         String sqlSelect = "SELECT * FROM " + TABLE_DIVDR;
-        System.out.println(sqlSelect);
         if (connection != null) {
             try {
                 Statement statement = connection.createStatement();
@@ -91,6 +100,7 @@ public class AppModel {
         }
     }
 
+    //inserts a new learner into the database
     public void insertLearner(Learner learner) {
         // INSERT INTO tableContacts VALUES(null, 'Spike the Bulldog',
         // '509-509-5095', '')
@@ -110,6 +120,7 @@ public class AppModel {
         nameList.add(learner);
     }
 
+    //
     public static Learner checkUsername(String un){
         for (Learner abc: nameList) {
             if((abc.getUserName()).equals(un)){
@@ -119,6 +130,7 @@ public class AppModel {
         return null;
     }
 
+    //deletes the whole table
     public void deleteAll() {
         // DELETE FROM tableContacts
         String sqlDelete = "DELETE FROM " + TABLE_DIVDR;
@@ -133,7 +145,8 @@ public class AppModel {
         }
     }
 
-    public void updateContact() {
+    //after the user gets a new highScore or lastScore, we update their scores with this function
+    public void updateLearner() {
         // update record with id to have new info stored in newContact
         // UPDATE tableContacts SET name='SPIKE', phoneNumber='208-208-2082' WHERE id=1
         //UPDATE tableDIVDR SET lastscore = 25.5, WHERE NAME = 'Caleb'
@@ -149,7 +162,7 @@ public class AppModel {
         }
     }
 
-
+    //builds the SQL command for updateLearner
     private String updateHighScore(Learner currentUser){
         if (currentUser.getLastScore() >= currentUser.getHighScore()){
             currentUser.highScore = currentUser.lastScore;

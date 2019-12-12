@@ -14,23 +14,30 @@ public class QuizController {
     private DecimalFormat df = new DecimalFormat("###.##");
 
     public QuizController(QuizPanel quizPanel, AppModel ap) {
+
+        //timer for the quiz
         quizPanel.timer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                //do this while timer is counting down
                 if (quizPanel.time != 0) {
                     quizPanel.time--;
                     quizPanel.timeLabel.setText(Integer.toString(quizPanel.time));
-                } else {
+                }
+                //do this when the timer is done
+                else {
                     quizPanel.timer.stop();
                     quizPanel.divisionPanel.setVisible(false);
                     quizPanel.submit.setEnabled(false);
                     percentCorrect = (1 - getResult(quizPanel.answers) / (double) correctAnswers.size()) * 100;
                     quizPanel.statusLabel.setText("Timer's Up! You got " + df.format(percentCorrect) + "% correct!");
                     CurrentUser.changeLast(percentCorrect);
-                    ap.updateContact();
+                    ap.updateLearner();
                 }
             }
         });
+
+        //start the quiz will start the timer and changes which buttons are enabled
         quizPanel.startQuiz.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -47,20 +54,17 @@ public class QuizController {
 //            }
 //        });
 
+        //submit button sends the input and the rest of the problem to the model
         quizPanel.submit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 correctAnswers.add(quizPanel.getRightAnswer());
-                System.out.println("correct: " + correctAnswers);
                 String quot = quizPanel.getQuotient();
                 if (!quot.equals("")) {
                     quizPanel.addToList(quot);
-                    System.out.println("submitted:" + quizPanel.answers + "\n");
                 }
                 else{
-                    System.out.println("Empty");
                     quizPanel.addToList("0");
-                    System.out.println("submitted:" + quizPanel.answers + "\n");
                 }
                 quizPanel.newQuestion();
             }
@@ -69,6 +73,7 @@ public class QuizController {
 
     }
 
+    //finds percentage that they got it right
     private int getResult(LinkedList<Integer> abc) {
         int wrongAns = 0;
         for (int i = 0; i < abc.size(); i++) {
