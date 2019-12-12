@@ -23,7 +23,7 @@ public class PracticePanel extends JPanel {
         instructionPanel = new JPanel();
         instructionPanel.setLayout(new BoxLayout(instructionPanel, BoxLayout.Y_AXIS));
 
-        instructions = new JLabel("<html> <div align \"left\"> Welcome to the Practice Problem tab! <br/> <br/> Here you can practice " +
+        instructions = new JLabel("<html> <div align \"left\"> Welcome to the Practice Problem tab! <br/> <br/> Here, you can practice " +
                 "your division skills. Below is a problem, solve it (using scratch paper if necessary), " +
                 "then you can pick to return to the Tutorial tab, do more practice problems, or move on to " +
                 "the Quiz tab. <br/> <br/> Good luck! <div/> <br/> </html>");
