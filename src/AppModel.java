@@ -153,10 +153,6 @@ public class AppModel {
     private String updateHighScore(Learner currentUser){
         if (currentUser.getLastScore() >= currentUser.getHighScore()){
             currentUser.highScore = currentUser.lastScore;
-            System.out.println("UPDATE " + TABLE_DIVDR + " SET " +
-                    LAST + " = " + currentUser.getLastScore() + ", " +
-                    HIGH + " = " + currentUser.getHighScore() + " WHERE " +
-                    USERNAME + " = '" + currentUser.getUserName() +"'");
             return "UPDATE " + TABLE_DIVDR + " SET " +
                     LAST + " = " + currentUser.getLastScore() +", " +
                     HIGH + " = " + currentUser.getHighScore() + " WHERE " +
@@ -164,9 +160,6 @@ public class AppModel {
 
         }
         else{
-            System.out.println("UPDATE " + TABLE_DIVDR + " SET " +
-                    LAST + " = " + currentUser.getLastScore() + " WHERE " +
-                    USERNAME + " = '" + currentUser.getUserName() +"'");
             return "UPDATE " + TABLE_DIVDR + " SET " +
                     LAST + " = " + currentUser.getLastScore() + " WHERE " +
                     USERNAME + " = '" + currentUser.getUserName() +"'";
