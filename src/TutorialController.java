@@ -18,13 +18,18 @@ public class TutorialController {
                 N = Integer.parseInt(tutorialPanel.divisionPanel.dividend.getText());
                 D = Integer.parseInt(tutorialPanel.divisionPanel.divisor.getText());
 
-                tutorialPanel.divisionPanel.quotient.setText(Integer.toString(divide(N, D)));
+                if (D == 0) {
+                    JOptionPane.showMessageDialog(null,
+                            "Your input is wrong",
+                            "Invalid",
+                            JOptionPane.ERROR_MESSAGE);
+                } else {
+                    tutorialPanel.divisionPanel.quotient.setText(Integer.toString(divide(N, D)));
 
-                ourSteps = divisionSteps(N, D);
-                putStepPanels(ourSteps, tutorialPanel.stepsListPanel);
-                System.out.println(ourSteps);
-
-
+                    ourSteps = divisionSteps(N, D);
+                    putStepPanels(ourSteps, tutorialPanel.stepsListPanel);
+                    System.out.println(ourSteps);
+                }
             }
 
 
