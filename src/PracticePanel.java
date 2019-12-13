@@ -1,10 +1,21 @@
-
+/**
+ * This sets up the Practice Problem tab. There are instructions at the top
+ * of the panel and the problem number. A division problem is located in the middle
+ * page for the user to solve.
+ * CPSC 224-01, Fall 2019
+ * 224 Project
+ * No sources to cite.
+ *
+ * @author Allison Hayes
+ * @version v1.0 12/12/19
+ */
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
 public class PracticePanel extends JPanel {
 
+    //fields
     protected JPanel instructionPanel;
     protected JPanel problemPanel;
     protected JPanel topPanel;
@@ -17,6 +28,11 @@ public class PracticePanel extends JPanel {
     protected PracticeController controller;
     private Random rand = new Random();
 
+    /**
+     * Constructor for PracticePanel.
+     * Calls JPanel constructor and puts all GUI
+     * components in place.
+     */
     public PracticePanel() {
         super(new BorderLayout());
 
@@ -63,6 +79,10 @@ public class PracticePanel extends JPanel {
         controller = new PracticeController(this);
     }
 
+    /**
+     * Randomly generates numbers for a new division problem.
+     * @return a DivisionPanel with s new problem.
+     */
     private DivisionPanel genProblem(){
         int divisor = rand.nextInt(30) + 2;
         int dividend = rand.nextInt(30) + 2;
@@ -71,6 +91,9 @@ public class PracticePanel extends JPanel {
         return new DivisionPanel(divisor, quotient, dividend);
     }
 
+    /**
+     * Changes problem displayed on the Practice Panel.
+     */
     void newProblem(){
         centerPanel.remove(problem);
         problem = genProblem();
