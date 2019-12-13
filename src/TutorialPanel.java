@@ -1,3 +1,17 @@
+/**
+ * This program creates the general UI for our Tutorial
+ * section. Contains all views for the user to input their answers and
+ * see the steps to solve a division problem as per the euclidean
+ * division algorithm
+ * CPSC 3224-01, Fall 2010
+ * Final Project D/VDR
+ * SOURCES:
+ * https://stackoverflow.com/questions/13510641/add-controls-vertically-instead-of-horizontally-using-flow-layout
+ * https://stackoverflow.com/questions/14030124/how-to-dynamically-add-jlabels-to-jpanel
+ *
+ * @author Simon Robles
+ * @version v1.0 12/12/19
+ */
 import javax.swing.*;
 import java.awt.*;
 
@@ -7,6 +21,7 @@ public class TutorialPanel extends JPanel{
     JPanel stepsListPanel;
     JButton calculateButton;
 
+    // Default Value Constructor
     public TutorialPanel(){
         super(new BorderLayout());
 
@@ -18,7 +33,7 @@ public class TutorialPanel extends JPanel{
 
         //DIVISION STEP PANEL
         this.stepsListPanel = new JPanel();
-        this.stepsListPanel.setLayout(new FlowLayout());
+        this.stepsListPanel.setLayout(new BoxLayout(this.stepsListPanel, BoxLayout.Y_AXIS));
 
         JScrollPane jp = new JScrollPane(this.stepsListPanel,
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
@@ -30,20 +45,6 @@ public class TutorialPanel extends JPanel{
 
         add(divisionPanel, BorderLayout.NORTH);
         add(calculateButton, BorderLayout.SOUTH);
-        add(stepsListPanel, BorderLayout.CENTER);
-//        add(jp, BorderLayout.CENTER);
-
-//        super(new BorderLayout());
-//
-//        tutorialProblem = new DivisionPanel();
-//
-//        tutorialPanel = new JPanel();
-//        tutorialPanel.setLayout(new GridLayout());
-//
-//        submitButton = new JButton("Submit");
-//
-//        add(tutorialProblem, BorderLayout.NORTH);
-//        add(tutorialPanel, BorderLayout.CENTER);
-//        add(submitButton, BorderLayout.SOUTH);
+        add(jp, BorderLayout.CENTER);
     }
 }

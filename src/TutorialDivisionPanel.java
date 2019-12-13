@@ -1,3 +1,13 @@
+/**
+ * This program creates the general layout for an interactive division symbol
+ * CPSC 3224-01, Fall 2010
+ * Final Project D/VDR
+ * SOURCES:
+ * Dr. Gina Sprint (She's awesome!)
+ *
+ * @author Simon Robles
+ * @version v1.0 12/12/19
+ */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Line2D;
@@ -12,6 +22,7 @@ public class TutorialDivisionPanel extends JPanel {
     int center;
     int top;
 
+    /*EVC*/
     public TutorialDivisionPanel(int l, int c, int t) {
 
         this.left = l;
@@ -53,7 +64,7 @@ public class TutorialDivisionPanel extends JPanel {
     }
 
 
-
+    /*DVC*/
     public TutorialDivisionPanel() {
         //setLayout(new GridLayout(2, 2));
         setLayout(new GridBagLayout());
@@ -91,6 +102,11 @@ public class TutorialDivisionPanel extends JPanel {
         this.add(dividend, c3);
     }
 
+    /**
+     * This function paints a division symbol
+     *
+     * @param g the graphics component to "paint"
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -105,6 +121,10 @@ public class TutorialDivisionPanel extends JPanel {
         g2.draw(new Line2D.Double(cornerX, cornerY, cornerX + dividend.getWidth(), cornerY)); // horizontal
 
     }
+
+    /**
+     * This function sets up all of the Text fields for the Division Symbol
+     */
     private void setupTextFields(){
         int textFieldCols = 3;
 
@@ -120,12 +140,12 @@ public class TutorialDivisionPanel extends JPanel {
         divisor.setEditable(true);
         divisor.setFont(myFont);
         divisor.setHorizontalAlignment(JTextField.CENTER);
-        divisor.setText(Integer.toString(left));
+        divisor.setText("");
 
         dividend = new JTextField(textFieldCols);
         dividend.setEditable(true);
         dividend.setFont(myFont);
         dividend.setHorizontalAlignment(JTextField.CENTER);
-        dividend.setText(Integer.toString(center));
+        dividend.setText("");
     }
 }

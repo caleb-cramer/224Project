@@ -23,7 +23,7 @@ public class AppModel {
     //constructor that makes a new connection, makes a new table and gets an ArrayList<> of all the names in the database
     public AppModel() {
         getConnection();
-        createContactsTable();
+        createLearnerTable();
         getAllNamesList();
     }
 
@@ -37,7 +37,7 @@ public class AppModel {
     }
 
     //makes a table to go in database
-    private void createContactsTable(){
+    private void createLearnerTable(){
         String sqlCreate = "CREATE TABLE " + TABLE_DIVDR + "(" +
                 ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 USERNAME + " TEXT, " +
